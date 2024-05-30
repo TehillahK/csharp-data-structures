@@ -15,4 +15,12 @@ class Stack
         return result;
     }
 
+    public bool pop(){
+        return false;
+    }
+
+    public bool isEmpty(){
+        return this.topIndex == -1;
+    }
+
 }
