@@ -7,16 +7,20 @@ class Stack
         this.topIndex = -1;
     }
 
-    public bool push(int data){
-        bool result = false;
+    public int push(int data){
+        int result = -1;
         this.items[++this.topIndex] = data;
         if(this.items[topIndex]== data)
-            result = true;
+            result = this.items[topIndex];
         return result;
     }
 
-    public bool pop(){
-        return false;
+    public int pop(){
+        if(this.topIndex>-1)
+            return this.items[this.topIndex--];
+        else{
+            return -1;
+        }
     }
 
     public bool isEmpty(){
