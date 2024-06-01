@@ -1,4 +1,4 @@
-using System.Dynamic;
+
 
 class LinkedList
 {
@@ -9,7 +9,21 @@ class LinkedList
     }
 
     public int insert(int data){
-        return -1;
+        int result = -1;
+        if(top == null){
+            top = new Node(data);
+            result = top.Data;
+        }else{
+            Node newNode = new Node(data);
+            Node? currNode = top;
+            while(currNode.Next != null){
+                currNode = currNode.Next;
+            }
+            currNode.Next = newNode;
+            result = currNode.Next.Data;
+
+        }
+        return result;
     }
 
     class Node
@@ -17,8 +31,9 @@ class LinkedList
         private int data;
         private Node? next;
 
-        public Node(){
-            
+        public Node(int data){
+            this.data = data;
+            this.next = null;
         }
 
         public int Data{
@@ -26,5 +41,9 @@ class LinkedList
             set {data = value;}
         }
         
+        public Node Next{
+            get {return next;}
+            set {next = value;}
+        }
     }
 }
